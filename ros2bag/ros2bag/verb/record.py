@@ -159,7 +159,7 @@ class RecordVerb(VerbExtension):
                  'under "rosbag2_bagfile_information/custom_data". The key=value pair can '
                  'appear more than once. The last value will override the former ones.'
         )
-
+        # TODO(emersonknapp) remove sqlite3 mentions
         parser.add_argument(
             '--storage-config-file', type=FileType('r'),
             help='Path to a yaml file defining storage specific configurations. '

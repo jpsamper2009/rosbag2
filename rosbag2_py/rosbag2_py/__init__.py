@@ -26,6 +26,7 @@ with add_dll_directories_from_env('PATH'):
     from rosbag2_py._storage import (
         ConverterOptions,
         FileInformation,
+        get_default_storage_id,
         ReadOrder,
         ReadOrderSortBy,
         StorageFilter,
@@ -40,7 +41,6 @@ with add_dll_directories_from_env('PATH'):
         get_registered_writers,
         get_registered_compressors,
         get_registered_serializers,
-        get_default_storage_id,
     )
     from rosbag2_py._info import (
         Info,

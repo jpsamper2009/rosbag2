@@ -41,8 +41,8 @@ WriterBenchmark::WriterBenchmark(const std::string & name)
   }
 
   bag_config_ = config_utils::bag_config_from_node_parameters(*this);
-  if (bag_config_.storage_options.storage_id != "sqlite3") {
-    RCLCPP_ERROR(get_logger(), "Benchmarking only supported for sqlite3 for now");
+  if (bag_config_.storage_options.storage_id != rosbag2_storage::get_default_storage_id()) {
+    RCLCPP_ERROR(get_logger(), "Benchmarking only supported for default storage for now");
     return;
   }
 

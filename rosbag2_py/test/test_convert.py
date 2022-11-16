@@ -21,6 +21,7 @@ import common  # noqa
 from rosbag2_py import (
     bag_rewrite,
     StorageOptions,
+    get_default_storage_id,
 )
 
 RESOURCES_PATH = Path(os.environ['ROSBAG2_PY_TEST_RESOURCES_DIR'])
@@ -64,22 +65,23 @@ output_bags:
     def test_basic_convert(self):
         # This test is just to test that the rosbag2_py wrapper parses input
         # It is not a comprehensive test of bag_rewrite.
+        storage_id = 'sqlite3'
         bag_a_path = RESOURCES_PATH / 'convert_a'
         bag_b_path = RESOURCES_PATH / 'convert_b'
         output_uri_1 = self.tmp_path / 'converted_1'
         output_uri_2 = self.tmp_path / 'converted_2'
         input_options = [
             StorageOptions(uri=str(bag_a_path)),
-            StorageOptions(uri=str(bag_b_path), storage_id='sqlite3'),
+            StorageOptions(uri=str(bag_b_path), storage_id=storage_id),
         ]
         output_options_path = self.tmp_path / 'simple_convert.yml'
         output_options_content = f"""
 output_bags:
 - uri: {output_uri_1}
-  storage_id: sqlite3
+  storage_id: {storage_id}
   topics: [a_empty]
 - uri: {output_uri_2}
-  storage_id: sqlite3
+  storage_id: {storage_id}
   exclude: ".*empty.*"
 """
         with output_options_path.open('w') as f:

@@ -46,7 +46,7 @@ TEST_F(MetadataFixture, test_writing_and_reading_yaml)
 {
   BagMetadata metadata{};
   metadata.version = 1;
-  metadata.storage_identifier = "sqlite3";
+  metadata.storage_identifier = get_default_storage_id();
   metadata.relative_file_paths.emplace_back("some_relative_path");
   metadata.relative_file_paths.emplace_back("some_other_relative_path");
   metadata.duration = std::chrono::nanoseconds(100);

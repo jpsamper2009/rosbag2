@@ -71,6 +71,7 @@ class PlayVerb(VerbExtension):
             '--remap', '-m', default='', nargs='+',
             help='list of topics to be remapped: in the form '
                  '"old_topic1:=new_topic1 old_topic2:=new_topic2 etc." ')
+        # TODO(emersonknapp) remove sqlite3 mentions
         parser.add_argument(
             '--storage-config-file', type=FileType('r'),
             help='Path to a yaml file defining storage specific configurations. '

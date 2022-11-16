@@ -109,7 +109,7 @@ BagConfig bag_config_from_node_parameters(
   const std::string default_bag_folder("/tmp/rosbag2_test");
   BagConfig bag_config;
 
-  node.declare_parameter<std::string>("storage_id", "sqlite3");
+  node.declare_parameter<std::string>("storage_id", rosbag2_storage::get_default_storage_id());
   node.declare_parameter<int>("max_cache_size", 10000000);
   node.declare_parameter<int>("max_bag_size", 0);
   node.declare_parameter<std::string>("db_folder", default_bag_folder);
